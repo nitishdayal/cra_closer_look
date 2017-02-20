@@ -1,0 +1,16 @@
+{
+  "name": "cra_closer_look",
+  "version": "1.0.0",
+  "description": "A closer look at what Create-React-App is doing for you",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react",
+    "create-react-app",
+    "react-scripts"
+  ],
+  "author": "Nitish Dayal",
+  "license": "ISC"
+}
