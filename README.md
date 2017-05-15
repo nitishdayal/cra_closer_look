@@ -14,10 +14,10 @@ The purpose of this document is to provide an overview of the problem/s Create-R
   regarding how to use those tools.
 
 We will use the Tic-Tac-Toe project from the [Intro To React tutorial](//facebook.github.io/react/tutorial/tutorial.html)
-   as a starting point. The components have been split into separate files, and the
-   `calculateWinner` function lives in the `utils` folder as a utility function.
-   The source code can be found [here](./tic_tac_toe/). Feel free to
-   clone the project and follow along.
+  as a starting point. The components have been split into separate files, and the
+  `calculateWinner` function lives in the `utils` folder as a utility function.
+  The source code can be found [here](./tic_tac_toe/). Feel free to
+  clone the project and follow along.
 
 # Introduction
 
@@ -100,7 +100,7 @@ Application Directory Structure:
 
 ## `yarn start/npm start`
 
-A **module bundler** parses through the application starting at `src/index.js`, following
+Webpack (the **module bundler** used by CRA) parses through the application starting at `src/index.js`, following
   any `import`ed modules, until it has a complete dependency graph. It uses this dependency
   graph to create a single JavaScript file consisting of all modules used by the app,
   _injects_ the file via `script` tag into `public/index.html`, and starts a development
