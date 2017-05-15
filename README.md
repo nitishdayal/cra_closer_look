@@ -102,13 +102,12 @@ Application Directory Structure:
 ## `yarn start/npm start`
 
 A **module bundler** parses through the application starting at `src/index.js`, following
-  any imported modules the file (and any files it imports) relies on, until it has a complete
-  dependency graph. It uses this dependency graph to create a single JavaScript file
-  consisting of all modules used by the app, _injects_ the file via `script` tag into
-  `public/index.html`, and starts a development server on `http://localhost:3000`. Navigating
-  to this URL in the browser will show a live, interactive instance of your application. Any
-  changes made and saved to the source code will be immediately reflected in the running app
-  instance.
+  any `import`ed modules, until it has a complete dependency graph. It uses this dependency
+  graph to create a single JavaScript file consisting of all modules used by the app, 
+  _injects_ the file via `script` tag into `public/index.html`, and starts a development 
+  server on `http://localhost:3000`. Navigating to this URL in the browser will show a live,
+  interactive instance of your application. Any changes made and saved to the source code 
+  will be immediately reflected in the running app instance.
 
 ## `yarn test/npm run test`
 
