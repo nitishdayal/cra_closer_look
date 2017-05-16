@@ -199,9 +199,9 @@ Post-Eject Directory Structure:
 
 ```bash
  # Configuration files for Jest & Webpack, and polyfills for Promises and Object.assign()
- ├── config
+ ├── config/
  │   ├── env.js
- │   ├── jest
+ │   ├── jest/
  │   │   ├── cssTransform.js
  │   │   └── fileTransform.js
  │   ├── paths.js
@@ -210,24 +210,24 @@ Post-Eject Directory Structure:
  │   └── webpack.config.prod.js
  ├── node_modules/     # Installed packages necessary for Create-React-App
  ├── package.json
- ├── public
+ ├── public/
  │   ├── favicon.ico
  │   └── index.html
- ├── scripts          # Exposed React Scripts
+ ├── scripts/          # Exposed React Scripts
  │   ├── build.js
  │   ├── start.js
  │   └── test.js
- ├── src
- │   ├── components
+ ├── src/
+ │   ├── components/
  │   │   ├── board.js
  │   │   ├── game.js
  │   │   └── square.js
  │   ├── index.css
  │   ├── index.js
  │   ├── logo.svg
- │   └── utils
+ │   └── utils/
  │       └── index.js
  └── yarn.lock
 
-12 directories, 32 files
+8 directories, 21 files
 ```
