@@ -74,22 +74,27 @@ It also allows developers who are new to modern JavaScript tools/libraries to be
 
 # Create-React-App Development Flow
 
-Application Directory Structure:
+Here is the directory structure of the example application found under `tic-tac-toe`.
+  It is the end result us using Create-React-App to generate the initial scaffolding,
+  creating a folder `utils/` under `src/` (files necessary for the application should all
+  be somewhere in under the `src/` folder)
+
+Current Application Directory Structure:
 
 ```shell
-├── node_modules/
-├── public/
+├── node_modules/     # Installed packages necessary for Create-React-App
+├── public/           # Static files
 │   ├── favicon.ico
 │   └── index.html
-├── src/
-│   ├── components/
+├── src/              # Application root
+│   ├── components/   # Application components
 │   │   ├── board.js
 │   │   ├── game.js
 │   │   └── square.js
 │   ├── index.css
 │   ├── index.js
 │   ├── logo.svg
-│   └── utils/
+│   └── utils/        # Utility files: tools (like a custom string formatting function) to be utilized in multiple parts of the application
 │       └── index.js
 ├── package.json
 ├── README.md
@@ -100,13 +105,16 @@ Application Directory Structure:
 
 ## `yarn start/npm start`
 
-Webpack (the **module bundler** used by CRA) parses through the application starting at `src/index.js`, following
-  any `import`ed modules, until it has a complete dependency graph. It uses this dependency
-  graph to create a single JavaScript file consisting of all modules used by the app,
-  _injects_ the file via `script` tag into `public/index.html`, and starts a development
-  server on `http://localhost:3000`. Navigating to this URL in the browser will show a live,
-  interactive instance of your application. Any changes saved to the source code
-  will reflect in the running app instance automatically.
+[Webpack](https://webpack.js.org/) (the **module bundler** used by CRA) parses through 
+  the application starting at `src/index.js`, following any `import`ed modules, until 
+  it has a complete dependency graph. In order to convert the ES2015+ code
+  that Webpack comes across into a version of JavaScript that has better support across
+  the popular browser vendors, the JavaScript code is **transpiled** via [Babel](https://www.babeljs.io).
+  It uses this dependency graph to create a single JavaScript file consisting of all 
+  modules used by the app, _injects_ the file via `script` tag into `public/index.html`, 
+  and starts a development server on `http://localhost:3000`. Navigating to this URL in the 
+  browser will show a live, interactive instance of your application. Any changes saved 
+  to the source code will reflect in the running app instance automatically.
 
 ## `yarn test/npm run test`
 
@@ -122,16 +130,24 @@ Covering the Jest framework is well outside the scope of this document, and is a
 
 ## `yarn build/npm run build`
 
+Create-React-App will first ensure that the files `src/index.js` and `public/index.html` 
+  exist. These files can be modified as necessary, but the names and locations shouldn't
+  be altered. It then calls on Webpack to create an optimized, production-ready bundle of
+  the application. The configuration provided to Webpack for this build differs from the
+  configuration used for development. Some examples of these optimizations:
+
+-   The bundle created from this configuration has the source code _minified and compressed_
+      for performance benefits.
+
+-   The [**source maps**](http://blog.teamtreehouse.com/introduction-source-maps) generated
+      from this configuration are full SourceMap files (`*.map.js`) in comparison to the
+      less-detailed, but faster to generate SourceMap files generated from the development
+      configuration.
+
+For instructions on deploying this build, see the Create-React-App documentation
+  under [Deployment](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#deployment).
+
 Post-Build Directory Structure:
-
-<!--
-
-  TODO: Provide explanation of what happens when 'yarn build' is called, how it
-  differs from 'yarn start' in terms of the bundling process, how to load the
-  build output in a browser without deploying, an explanation of the assets-manifest.json
-  file, and an introduction to sourcemaps.
-
--->
 
 ```shell
 ├── build/
