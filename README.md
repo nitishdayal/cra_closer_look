@@ -7,8 +7,8 @@
 
 The purpose of this document is to provide an overview of the problem/s Create-React-App
   attempts to solve, and how that solution is implemented. It will walk through the _flow_
-  of Create-React-App and provide insight into what each of the provided scripts do, with the
-  intention of explaining _what_ has been abstracted away by Create-React-App. This
+  of using Create-React-App and provide insight into what each of the provided scripts do, with the
+  intention of explaining what's happening 'behind-the-scenes' with Create-React-App. This
   document does not hold any information about customizing the scripts, the actual
   configurations for the various tools put into use by Create-React-App, or information
   regarding how to use those tools.
@@ -51,8 +51,8 @@ Given that JavaScript can be fairly loose in terms of implementation it's benefi
   is tested.
 
 Implementing these tools into a project for can be time consuming and overwhelming, especially
-  if you're already trying to learn the tools while also learning a new library or framework. 
-  This creates a large 'barrier of entry' to those interested in React, but maybe lack experience 
+  if you're tasked with learning the tools while also learning a new library or framework. 
+  This creates a large 'barrier of entry' for those interested in React, but maybe lack experience 
   working with these tools.
 
 ## The Solution
@@ -70,14 +70,12 @@ It also allows developers who are new to modern JavaScript tools/libraries to be
   development environments and learn the necessary tools, effectively removing the
   barrier of entry.
 
-* * *
-
 # Create-React-App Development Flow
 
 Here is the directory structure of the example application found under `tic-tac-toe`.
   It is the end result us using Create-React-App to generate the initial scaffolding,
   creating a folder `utils/` under `src/` (files necessary for the application should all
-  be somewhere in under the `src/` folder)
+  be somewhere in under the `src/` folder, or the `public/` folder for static files).
 
 Current Application Directory Structure:
 
@@ -109,12 +107,17 @@ Current Application Directory Structure:
   the application starting at `src/index.js`, following any `import`ed modules, until 
   it has a complete dependency graph. In order to convert the ES2015+ code
   that Webpack comes across into a version of JavaScript that has better support across
-  the popular browser vendors, the JavaScript code is **transpiled** via [Babel](https://www.babeljs.io).
-  It uses this dependency graph to create a single JavaScript file consisting of all 
-  modules used by the app, _injects_ the file via `script` tag into `public/index.html`, 
-  and starts a development server on `http://localhost:3000`. Navigating to this URL in the 
-  browser will show a live, interactive instance of your application. Any changes saved 
-  to the source code will reflect in the running app instance automatically.
+  the popular browser vendors, Webpack passes any JavaScript files it comes across
+  through [Babel](https://www.babeljs.io). Babel is a **transpiler** which parses
+  newer and experimental JavaScript syntax, and _transforms_ the code into a version of
+  JavaScript which has better support across browsers.
+
+Webpack uses the generated dependency graph to create a single JavaScript file consisting of the
+  application source code and modules used by the app, _injects_ the file via `script` tag
+  into `public/index.html`, and starts a development server on `http://localhost:3000`.
+  Navigating to this URL in the browser will show a live, interactive instance of your
+  application. Any changes saved to the source code will reflect in the running app
+  instance automatically.
 
 ## `yarn test/npm run test`
 
