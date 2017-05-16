@@ -106,8 +106,8 @@ Current Application Directory Structure:
 [Webpack](https://webpack.js.org/) (the **module bundler** used by CRA) parses through 
   the application starting at `src/index.js`, following any `import`ed modules, until 
   it has a complete dependency graph. In order to convert the ES2015+ code
-  that Webpack comes across into a version of JavaScript that has better support across
-  the popular browser vendors, Webpack passes any JavaScript files it comes across
+  that Webpack comes across into a version of JavaScript that will behave consistently
+  across the browsers, Webpack passes any JavaScript files it comes across
   through [Babel](https://www.babeljs.io). Babel is a **transpiler** which parses
   newer and experimental JavaScript syntax, and _transforms_ the code into a version of
   JavaScript which has better support across browsers.
