@@ -133,8 +133,9 @@ Covering the Jest framework is well outside the scope of this document, and is a
 Create-React-App will first ensure that the files `src/index.js` and `public/index.html` 
   exist. These files can be modified as necessary, but the names and locations shouldn't
   be altered. It then calls on Webpack to create an optimized, production-ready bundle of
-  the application. The configuration provided to Webpack for this build differs from the
-  configuration used for development. Some examples of these optimizations:
+  the application. Aside from actually generating a new folder & files (`build/**/*`), the 
+  configuration provided to Webpack for this build differs from the one used during
+  development. Some examples of these optimizations:
 
 -   The bundle created from this configuration has the source code _minified and compressed_
       for performance benefits.
@@ -144,7 +145,7 @@ Create-React-App will first ensure that the files `src/index.js` and `public/ind
       less-detailed, but faster to generate SourceMap files generated from the development
       configuration.
 
-For instructions on deploying this build, see the Create-React-App documentation
+For details/instructions on deploying this build, see the Create-React-App documentation
   under [Deployment](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#deployment).
 
 Post-Build Directory Structure:
@@ -185,10 +186,45 @@ Post-Build Directory Structure:
 
 **WARNING: EJECTING IS PERMANENT. There is no 'rewind' feature.**
 
-<!--
+If the needs of your application extend outside of the configuration and options provided
+  by Create-React-App, you can **eject** out of Create-React-App by called `yarn eject/npm 
+  run eject`. Calling this command will remove the abstractions and niceties provided by
+  Create-React-App. The configuration files, application dependencies, and NPM scripts
+  will be exposed and available to modify as needed. 
 
-  TODO: Provide breakdown of dependencies, folder structure, understanding flow of script calls
-  from package.json > scripts/*, and not a thing more. Any information outside of that feels like
-  it would go outside the scope of a document of this sort.
+Post-Eject Directory Structure:
 
--->
+```bash
+ # Configuration files for Jest & Webpack, and polyfills for Promises and Object.assign()
+ ├── config
+ │   ├── env.js
+ │   ├── jest
+ │   │   ├── cssTransform.js
+ │   │   └── fileTransform.js
+ │   ├── paths.js
+ │   ├── polyfills.js
+ │   ├── webpack.config.dev.js
+ │   └── webpack.config.prod.js
+ ├── node_modules/     # Installed packages necessary for Create-React-App
+ ├── package.json
+ ├── public
+ │   ├── favicon.ico
+ │   └── index.html
+ ├── scripts          # Exposed React Scripts
+ │   ├── build.js
+ │   ├── start.js
+ │   └── test.js
+ ├── src
+ │   ├── components
+ │   │   ├── board.js
+ │   │   ├── game.js
+ │   │   └── square.js
+ │   ├── index.css
+ │   ├── index.js
+ │   ├── logo.svg
+ │   └── utils
+ │       └── index.js
+ └── yarn.lock
+
+12 directories, 32 files
+```
