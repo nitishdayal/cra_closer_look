@@ -73,7 +73,7 @@ It also allows developers who are new to modern JavaScript tools/libraries to be
 # Create-React-App Development Flow
 
 Here is the directory structure of the example application found under `tic-tac-toe`.
-  It is the end result us using Create-React-App to generate the initial scaffolding,
+  It is the end result of us using Create-React-App to generate the initial scaffolding,
   creating a folder `utils/` under `src/` (files necessary for the application should all
   be somewhere in under the `src/` folder, or the `public/` folder for static files).
 
