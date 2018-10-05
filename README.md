@@ -50,7 +50,7 @@ Given that JavaScript can be fairly loose in terms of implementation it's benefi
   are also many **testing libraries**, with variations in their approach to _how_ an application
   is tested.
 
-Implementing these tools into a project for can be time consuming and overwhelming, especially
+Implementing these tools into a project can be time consuming and overwhelming, especially
   if you're tasked with learning the tools while also learning a new library or framework. 
   This creates a large 'barrier of entry' for those interested in React, but maybe lack experience 
   working with these tools.
